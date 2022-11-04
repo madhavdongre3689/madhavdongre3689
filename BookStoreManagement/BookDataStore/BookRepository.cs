@@ -17,7 +17,8 @@ namespace BookDataStore
             {
                 throw new DatabaseException("Entity cannot be empty");
             }
-            dbContext.Books?.Add(entity);
+           dbContext.Books?.Add(entity);
+           dbContext.SaveChanges();
         }
 
         public override BookDto Read(string Id)
@@ -37,6 +38,7 @@ namespace BookDataStore
                 throw new DatabaseException("Entity cannot be empty");
             }
             dbContext.Books?.Update(entity);
+            dbContext.SaveChanges();
         }
 
         public override IEnumerable<BookDto> GetAllBooks()
